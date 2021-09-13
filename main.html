@@ -190,6 +190,69 @@ Youtube貼り付けここまで -->
         <!-- STAGE2クリア画面　ここまで -->
       </div>
       <!-- STAGE2　ここまで -->
+           <!-- STAGE1　ここから -->
+      <div id="sectionStage1" class="stage">
+
+        <!-- STAGE1問題セクション　ここから -->
+        <section class="section">
+          <div class="container">
+            <h2 class="section-title section-title--keycolorlight"><span class="section-title__stage">STAGE：1</span>謎のダイイングメッセージ</h2>
+            <p class="text-center">階段を下りた正面には、自販機とホテル内連絡用と思われる黒電話が2台設置してあった。<br>
+              何故2台もあるのかと疑問に思いそれを覗いてみると、片方のダイヤルにはアルファベットが、もう片方には数字が刻まれている。<br>
+              そして、意味ありげな文字が書かれた紙片が一緒に置かれているのであった。</p>
+            <div class="container">
+              <figure class="image__container">
+                <img src="assets/images/ダイイングメッセージ.png" alt="">
+              </figure>
+                
+ <!--  YouTube貼り付け
+              <div class="youtube__container">
+                <div class="youtube">
+                  <iframe width="560" height="315" src="https://www.youtube.com/embed/IRyJe-0Uie0?controls=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                </div>
+              </div>
+Youtube貼り付けここまで -->
+                
+            </div>
+          </div>
+        </section>
+        <!-- STAGE1問題セクション　ここまで -->
+
+        <!-- STAGE1解答入力セクション　ここから -->
+        <section class="section bg-color--keycolor">
+          <div class="container">
+            <h2 class="section-title"><span class="section-title__stage">STAGE：1</span>キーワードを入力</h2>
+            <!------------------------------------------------------------------------------------------------------------
+              解答入力欄のコンポーネントです。入力欄・送信ボタン・エラーメッセージを表示します。
+              v-bind:correct="correctAnswer['stage1']['q1']" は正解の解答を指します。
+              v-on:answer-input="answerInput($event, 'stage1', 1)" は送信ボタンをクリックした時の動作を決める関数です。
+              2番目、3番目の1引数 'stage1', 1 はstage1の1問目ということになります。
+              1番麺の引数 $event は正解、不正解の判定を受け取る変数です。
+              []、()の間違い、''の抜けがあると動きません。
+            ------------------------------------------------------------------------------------------------------------>
+            <answer-input v-bind:correct="correctAnswer['stage3']['q1']" v-on:answer-input="answerInput($event, 'stage3', 1)"></answer-input>
+
+            <a class="link-hint" href="hint1.html" target="hint1">ヒントをみる ></a>
+          </div>
+        </section>
+        <!-- STAGE1解答入力セクション　ここまで -->
+
+        <!-- STAGE1クリア画面　ここから -->
+        <!------------------------------------------------------------------------------------------------------
+          ステージを全問正解するとclear['stage1']がtrusになります。
+          v-if="clear['stage1']"はclear['stage1']がtrueになったら表示します。
+          v-bind:class="{isClear:clear['stage1']}"はclear['stage1']がtrueになったら「isClear」クラスを追加します。
+        -------------------------------------------------------------------------------------------------------->
+        <section v-if="clear['stage1']" v-bind:class="{isClear:clear['stage1']}"  class="section section--clear bg-color--gray">
+          <div class="container">
+            <div class="clear-message">
+              <div class="clear-message__title">STAGE：１  クリア！</div>
+              <div class="clear-message__content">周りを見渡してみるとナイフが刺されている紙を見つけた。<br>
+                そこには何も書いてなかったが事態を頭の中で整理するために少しこの場に止まることにした。</div>
+              <button v-on:click="nextStage('stage1')" onclick="location.href='#sectionStage2'" class="clear-message__btn btn">次のステージへ<svg class="btn__arrow"><use xlink:href="#arrow"></use></svg></button>
+            </div>
+          </div>
+        </section>
 
       <!-- STAGE3　ここから -->
       <div v-if="next['stage2']" id="sectionStage3" class="stage">
@@ -217,7 +280,7 @@ Youtube貼り付けここまで -->
               v-on:answer-input="answerInput($event, 'stage3', 1, 'final')" は送信ボタンをクリックした時の動作を決める関数です。
               4番目の引数 'final' は最終ステージを表します。
             ------------------------------------------------------------------------------------------------------------------>
-            <answer-input v-bind:correct="correctAnswer['stage3']['q1']" v-on:answer-input="answerInput($event, 'stage3', 1, 'final')"></answer-input>
+            <answer-input v-bind:correct="correctAnswer['stage4']['q1']" v-on:answer-input="answerInput($event, 'stage4', 1, 'final')"></answer-input>
             <a class="link-hint" href="hint3.html" target="hint3">ヒントをみる ></a>
           </div>
         </section>
